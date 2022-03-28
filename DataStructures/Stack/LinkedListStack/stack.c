@@ -1,4 +1,4 @@
-//Stack - LinedList based implementation.
+//Stack - LinkedList based implementation.
 #include <stdio.h> 
 #include <stdlib.h>
 #include <stdbool.h>
