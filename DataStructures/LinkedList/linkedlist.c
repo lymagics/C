@@ -12,7 +12,7 @@ Node* create_list(LTYPE data) {
 
 void print_list(Node* head) {
 	if(head == NULL) {
-		printf("[]");
+		printf("[]\n");
 		return;
 	}
 	printf("[");
@@ -34,12 +34,14 @@ void push_list(Node* head, LTYPE data) {
 	head->next = temp;
 }
 
-LTYPE pop_list(Node* head) {
-	Node* element_to_del = head->next;
-	Node* before_del = head;
+LTYPE pop_list(Node** head) {
+	Node* element_to_del = (*head)->next;
+	Node* before_del = (*head);
 
 	if(element_to_del == NULL) { // In case of poping first element(which is the last also).
-		return -1;
+		LTYPE res = (*head)->data;
+		*head = NULL;
+		return res;
 	}
 
 	while(element_to_del->next != NULL) {
@@ -163,4 +165,17 @@ Node* reverse_list(Node* head) {
 	}
 	head = prev;
 	return head;
+}
+
+void reverse_recursive(Node** head, Node* p) {
+	if(p == NULL) {
+		return;
+	}
+	if(p->next == NULL) {
+		*head = p;
+		return;
+	}
+	reverse_recursive(head, p->next);
+	p->next->next = p;
+	p->next = NULL;
 }
