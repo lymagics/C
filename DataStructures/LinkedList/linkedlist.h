@@ -1,5 +1,5 @@
-#ifndef linkedlist_h
-#define linkedlist_h
+#ifndef __LINKED_LIST_H
+#define __LINKED_LIST_H
 
 #define LTYPE int
 
@@ -21,4 +21,4 @@ extern Node* delete_list(Node* head);
 extern Node* reverse_list(Node* head);
 extern void reverse_recursive(Node** head, Node* p);
 
-#endif /* linkedlist_h */
+#endif // __LINKED_LIST_H
